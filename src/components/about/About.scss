@@ -1,0 +1,40 @@
+#about{
+   // background-color: #f8f9fa;
+    overflow: hidden;
+    #aboutTitle,#info span{
+        color:#071E48;
+        font-weight: bolder;
+    }
+    #info span{
+            margin-left: 1rem;
+    }
+    #intro{
+        color:rgb(59, 106, 233);
+        position: relative;
+        margin-top:3rem;
+    }
+    #skillSection{
+      //  background-color: #f2f7fd;
+      //background-color: #dcdee0d0;
+
+        margin-top:4rem 0;
+        padding-bottom: 4rem;
+        overflow: hidden;
+    }
+    #sectionAbout{
+        
+        padding:4rem;
+        overflow: hidden;
+       position: relative;
+       .moiImg{
+        
+        margin-top: 2rem;
+    }
+
+    }
+    #timelineSection{
+        background-color: #dcdee0d0;
+        padding:1rem;
+    }
+
+}
