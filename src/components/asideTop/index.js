@@ -2,6 +2,7 @@ import React from "react";
 import "./asideTop.scss";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem,Container } from 'react-bootstrap';
 import HamburgerButton from "../HamburgerButton";
+import { Link } from 'gatsby'
 const showSettings=(event)=> {
   event.preventDefault();
 }
@@ -28,11 +29,11 @@ const showSettings=(event)=> {
 
   <Navbar  variant="light" id="menuLarge">
     <Container>
-    <Navbar.Brand href="#home">Portfolio</Navbar.Brand>
+    <Link to="/" className="navbar-brand">Portfolio</Link>
     <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">My work</Nav.Link>
-      <Nav.Link href="#pricing">About me</Nav.Link>
+      <Link to="/" className="nav-link">Home</Link>
+      <Link to="/work" className="nav-link">My work</Link>
+      <Link to="/about" className="nav-link">About me</Link>
       <Nav.Link href="#pricing">Contact</Nav.Link>
     </Nav>
     </Container>

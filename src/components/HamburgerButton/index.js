@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Motion, spring, presets } from 'react-motion';
 import "./style.scss";
 import { slide as Menu } from 'react-burger-menu';
+import {Link} from "gatsby"
 const HamburgerButton =()=> {
     
     const [toggle, setTogggle] = useState(false);
@@ -68,11 +69,11 @@ const HamburgerButton =()=> {
         </Motion>
       </svg>
                   <Menu id="menu"  isOpen={ toggle }>
-                  <a id="home" className="menu-item col-12" href="#">Home</a>
-                  <a id="about-item" className="menu-item col-12" href="#">About</a>
-                  
-                  <a id="contact" className="menu-item col-12" href="#">Contact</a>
-                  <a onClick={(event)=> showSettings(event) } className="menu-item--small" href="">Settings</a>
+              
+                  <Link id="home" className="menu-item col-12" to="/" className="nav-link">Home</Link>
+                  <Link id="about-item"  className="menu-item col-12" to="/work" className="nav-link">My work</Link>
+                  <Link  id="contact"  className="menu-item col-12" to="/about" className="nav-link">About me</Link>
+             
                </Menu> 
 
     </>

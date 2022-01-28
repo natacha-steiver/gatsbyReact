@@ -4,7 +4,7 @@ import "./About.scss";
 import moiAbout from'../../img/moiabout.png';
 import {Row,Col} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
-import ContactCard from  "../asideTop";
+import ContactCard from  "../contactCard";
 import Skills from "../skills";
 import Timeline from "../timeline";
 import { gsap } from "gsap";
@@ -13,7 +13,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const About=()=>{
-    
+
     
 
   useEffect(() => {

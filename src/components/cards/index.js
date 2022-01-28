@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useEffect,useRef} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,15 +8,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row,Col} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
 import basica from '../../img/basica.png';
-import laravel from '../../img/basica.png';
-import ReactOffice from '../../img/basica.png';
+import laravel from '../../img/backofficeLaravel.png';
+import ReactOffice from '../../img/backofficeReact.png';
 import mean from '../../img/mean.png';
-import tfe from  '../../img/tfe.jpg';
+import tfe from  '../../img/tfe.png';
 import wp from '../../img/wp.png';
 import mobile from  '../../img/mobile.png';
+import { gsap,Power2,Linear} from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 import moi from'../../img/moi.png';
-
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const cardsList=[
     {
       src: basica,
@@ -42,7 +45,7 @@ const cardsList=[
       src: ReactOffice,
       width: 4,
       height: 3,
-      title:'Back Office react front end',
+      title:'Back Office react ',
       description:'This is an example of the work required in my previous job. ',
       slug:'/',
       url:"https://github.com/natacha-steiver/laravel_backoffice",
@@ -52,7 +55,7 @@ const cardsList=[
       src: mean,
       width: 4,
       height: 3,
-      title:'MEAN stack',
+      title:'MEAN stack - Angular 8 CRUD',
       description: "This is a self-taught project, a back office in Angular. Username: todo password: todo ",
       slug:"/",
       url:'https://gentle-earth-58765.herokuapp.com/',
@@ -95,9 +98,38 @@ const cardsList=[
   ]
 
   
+
+
 const Cards=()=>{
-      
-    //faire un map et récupérer props pour faire plusieurs cards
+  const revealsRef3 = useRef([]);
+  revealsRef3.current = [];
+   useEffect(() => {
+    revealsRef3?.current.map((el, index) => {
+      gsap.to(
+        el,{
+          delay:1,
+          duration: .5,
+          autoAlpha: 1,
+          ease: "power2",
+          scrollTrigger: {
+            id: `sectionCards-${index + 1}`,
+            trigger: el,
+            start: "top center+=300",
+            end: "bottom top",
+            toggleActions: "restart none none reverse",
+            // markers: "true",
+          
+          }
+        }
+      );
+    });
+  }, []);
+
+  const addToRefs = (el) => {
+    if (el && !revealsRef3.current.includes(el)) {
+      revealsRef3.current.push(el);
+    }
+  };
   return (
       <Container style={{paddingBottom:"4rem",textAlign:"center"}}>
           <h3 style={{    
@@ -107,9 +139,9 @@ const Cards=()=>{
           fontWeight: "bolder"
 }}>My projects - soon all hosted</h3>
 <Row>
-{cardsList.map(el=>{
+{cardsList.map((el,i)=>{
           return(
-            <Col className="col-xs-12 col-md-12 col-lg-4 col-12">
+            <Col  id={`sectionCards-${i + 1}`} ref={addToRefs} key={i} style={{opacity:0.5}} className="col-xs-12 col-md-12 col-lg-4 col-12">
             <a href={el.url} alt={el.slug} target="_blank">
              <Card sx={{ maxWidth: 345 }} style={{display:"inline-block"}}>
             <CardActionArea>

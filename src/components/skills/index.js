@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./skills.scss";
 import {Row,Col} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
-
+import SkillBar from './SkillBar.js';
 const Skills=()=>{
 const SKILLS = [
     {
@@ -27,7 +27,7 @@ const SKILLS = [
   const SKILLS2 = [
     {
       "type": "Angular >2",
-      "level": 70
+      "level": 75
     },
     {
       "type": "HTML",
@@ -35,7 +35,7 @@ const SKILLS = [
     },
     {
       "type": "Wordpress",
-      "level": 65
+      "level": 60
     },
     {
       "type": "SQL",
@@ -57,11 +57,11 @@ const SKILLS = [
         
     <Row  style={{maxWidth:'80%'}}  >
     <Col xs="12" lg="6" >
-n
+    <SkillBar skills={SKILLS} colors={colors} height={'1vh'}/>
     </Col>
 
     <Col xs="12" lg="6">
-h
+    <SkillBar skills={SKILLS2} colors={colors} height={'1vh'} />
     </Col>
 
     </Row>

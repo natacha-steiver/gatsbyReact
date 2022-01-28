@@ -1,5 +1,5 @@
 import React,{ useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { gsap,Linear} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,13 +7,13 @@ import "./Header.scss";
 import moi from'../../img/moi.png';
 import {Row,Col} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
-
+import { Link } from 'gatsby'
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-
 const Header=()=>{
-  
+  const maDiv = useRef(null);
+
   const titleRef = useRef()
   
   const onLoad = () => {
@@ -54,25 +54,17 @@ const Header=()=>{
       delay: 0.7,
       duration: 0.5
     })
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
   }
-  
+
   useEffect(() => {
     onLoad();
   }, [])
   
+
+
   return(
     
-    <header className="mainHeader">
+    <header id="header" ref={maDiv} className="mainHeader">
 
     <Container>
     <Row  >
@@ -83,7 +75,7 @@ const Header=()=>{
         <span className="letter">a fullstack developer</span>
       </h1>
       <div className="title">
-      <button id="btnWork"  className="work">My best projects</button>
+      <button id="btnWork"  className="work" > <Link to="/work" style={{color:"inherit",textDecoration:"inherit"}}>My best projects</Link></button>
 
       </div>
     </Col>
