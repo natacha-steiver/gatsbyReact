@@ -46,10 +46,10 @@ const cardsList=[
       width: 4,
       height: 3,
       title:'Back Office react ',
-      description:'This is an example of the work required in my previous job. ',
+      description:'This is an example of the work required in my previous job. email:administrator2@gmail.com password:admin',
       slug:'/',
-      url:"https://github.com/natacha-steiver/laravel_backoffice",
-      btnTitle: "Go to github"
+      url:"https://warm-brushlands-82049.herokuapp.com",
+      btnTitle: "Visit the web site"
     },
     {
       src: mean,
